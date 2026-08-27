@@ -1,6 +1,6 @@
 "use client";
 
-import type { Achievement } from "@/generated/prisma_client";
+import type { Achievement } from "@prisma/client";
 import { motion, AnimatePresence } from "motion/react";
 import { motionTokens } from "@/lib/motionTokens";
 import { ExternalLink, Trophy, X, Calendar, Award } from "lucide-react";

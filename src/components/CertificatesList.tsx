@@ -1,6 +1,6 @@
 "use client";
 
-import type { Certificate } from "@/generated/prisma_client";
+import type { Certificate } from "@prisma/client";
 import { GlassCard } from "@/components/GlassCard";
 import { motion, AnimatePresence } from "motion/react";
 import { motionTokens } from "@/lib/motionTokens";

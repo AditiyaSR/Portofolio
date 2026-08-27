@@ -1,6 +1,6 @@
 "use client";
 
-import type { Project } from "@/generated/prisma_client";
+import type { Project } from "@prisma/client";
 import { GlassCard } from "@/components/GlassCard";
 import { motion, AnimatePresence } from "motion/react";
 import { motionTokens } from "@/lib/motionTokens";

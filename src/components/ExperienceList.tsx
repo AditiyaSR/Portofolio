@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import type { Experience } from "@/generated/prisma_client";
+import type { Experience } from "@prisma/client";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { motionTokens } from "@/lib/motionTokens";

@@ -1,6 +1,6 @@
 "use client";
 
-import type { Skill } from "@/generated/prisma_client";
+import type { Skill } from "@prisma/client";
 import { motion } from "motion/react";
 import { motionTokens } from "@/lib/motionTokens";
 import Image from "next/image";
