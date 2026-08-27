@@ -39,6 +39,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# generated prisma artifacts & sqlite local db
+# generated prisma artifacts
 /src/generated/
-/prisma/dev.db*
