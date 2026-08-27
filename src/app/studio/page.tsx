@@ -1,17 +1,20 @@
 import { prisma } from "@/lib/prisma";
 import StudioClient from "./StudioClient";
+import { ensureDatabaseSeeded } from "@/lib/ensureSeeded";
 
 export const dynamic = "force-dynamic";
 
 export default async function StudioPage() {
   try {
-    const profile = await prisma.profile.findFirst().catch(() => null);
-    const experiences = await prisma.experience.findMany({ orderBy: { order: "asc" } }).catch(() => []);
-    const education = await prisma.education.findMany({ orderBy: { order: "asc" } }).catch(() => []);
-    const projects = await prisma.project.findMany({ orderBy: { order: "asc" } }).catch(() => []);
-    const skills = await prisma.skill.findMany({ orderBy: { order: "asc" } }).catch(() => []);
-    const achievements = await prisma.achievement.findMany({ orderBy: { order: "asc" } }).catch(() => []);
-    const certificates = await prisma.certificate.findMany({ orderBy: { order: "asc" } }).catch(() => []);
+    await ensureDatabaseSeeded();
+
+    const profile = await prisma.profile.findFirst();
+    const experiences = await prisma.experience.findMany({ orderBy: { order: "asc" } });
+    const education = await prisma.education.findMany({ orderBy: { order: "asc" } });
+    const projects = await prisma.project.findMany({ orderBy: { order: "asc" } });
+    const skills = await prisma.skill.findMany({ orderBy: { order: "asc" } });
+    const achievements = await prisma.achievement.findMany({ orderBy: { order: "asc" } });
+    const certificates = await prisma.certificate.findMany({ orderBy: { order: "asc" } });
 
     return (
       <div className="min-h-screen bg-[#05050a] text-gray-200 p-6">
@@ -27,7 +30,7 @@ export default async function StudioPage() {
       </div>
     );
   } catch (error) {
-    console.error("StudioPage database query fallback:", error);
+    console.error("StudioPage error:", error);
     return (
       <div className="min-h-screen bg-[#05050a] text-gray-200 p-6">
         <StudioClient 
