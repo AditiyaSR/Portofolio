@@ -1,13 +1,10 @@
 import { prisma } from "@/lib/prisma";
 import StudioClient from "./StudioClient";
-import { ensureDatabaseSeeded } from "@/lib/ensureSeeded";
 
 export const dynamic = "force-dynamic";
 
 export default async function StudioPage() {
   try {
-    await ensureDatabaseSeeded();
-
     const profile = await prisma.profile.findFirst();
     const experiences = await prisma.experience.findMany({ orderBy: { order: "asc" } });
     const education = await prisma.education.findMany({ orderBy: { order: "asc" } });
@@ -32,16 +29,10 @@ export default async function StudioPage() {
   } catch (error) {
     console.error("StudioPage error:", error);
     return (
-      <div className="min-h-screen bg-[#05050a] text-gray-200 p-6">
-        <StudioClient 
-          initialProfile={null} 
-          initialExperiences={[]} 
-          initialEducation={[]}
-          initialProjects={[]} 
-          initialSkills={[]} 
-          initialAchievements={[]}
-          initialCertificates={[]}
-        />
+      <div className="min-h-screen bg-[#05050a] text-gray-200 p-6 flex flex-col items-center justify-center">
+        <h1 className="text-xl font-bold mb-4 text-red-500">Database Error</h1>
+        <p>Could not connect to the database. Make sure the database is migrated and seeded.</p>
+        <pre className="mt-4 p-4 bg-black rounded overflow-auto max-w-2xl text-sm">{String(error)}</pre>
       </div>
     );
   }
