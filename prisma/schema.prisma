@@ -1,0 +1,117 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma_client"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+
+
+model Profile {
+  id              String   @id @default(cuid())
+  name            String
+  title           String?
+  bio             String?
+  email           String?
+  phone           String?
+  location        String?
+  linkedinUrl     String?
+  githubUrl       String?
+  avatarUrl       String?
+  mechanicalCvUrl String?
+  softwareCvUrl   String?
+  resumeUrl       String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Experience {
+  id          String   @id @default(cuid())
+  role        String
+  company     String
+  companyUrl  String?
+  logoUrl     String?
+  location    String?
+  startDate   String?
+  endDate     String?
+  isCurrent   Boolean  @default(false)
+  description String?
+  mode        String   @default("MECHANICAL") // "MECHANICAL" | "SOFTWARE" | "BOTH"
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Education {
+  id             String   @id @default(cuid())
+  degree         String
+  major          String
+  institution    String
+  institutionUrl String?
+  logoUrl        String?
+  location       String?
+  startDate      String?
+  endDate        String?
+  gpa            String?
+  description    String?
+  mode           String   @default("BOTH")
+  order          Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Project {
+  id            String   @id @default(cuid())
+  title         String
+  category      String   // e.g., "Mechanical", "Software"
+  year          String?
+  description   String?
+  imageUrl      String?
+  repositoryUrl String?
+  demoUrl       String?
+  mode        String   @default("MECHANICAL") // "MECHANICAL" | "SOFTWARE" | "BOTH"
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Skill {
+  id        String   @id @default(cuid())
+  name      String
+  category  String   // "HARD_SKILL", "SOFT_SKILL", "TOOL"
+  mode      String   @default("MECHANICAL") // "MECHANICAL" | "SOFTWARE" | "BOTH"
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Achievement {
+  id            String   @id @default(cuid())
+  title         String
+  year          String?
+  description   String?
+  credentialUrl String?
+  imageUrl      String?
+  mode          String   @default("MECHANICAL") // "MECHANICAL" | "SOFTWARE" | "BOTH"
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Certificate {
+  id            String   @id @default(cuid())
+  title         String
+  issuer        String
+  issueDate     String?
+  expiryDate    String?
+  credentialId  String?
+  credentialUrl String?
+  imageUrl      String?
+  mode          String   @default("BOTH") // "MECHANICAL" | "SOFTWARE" | "BOTH"
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}

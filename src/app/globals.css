@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+@layer base {
+  /* =========================================
+     MECHANICAL THEME (DARK) 
+     ========================================= */
+  [data-theme="mechanical"],
+  :root[data-theme="mechanical"],
+  .dark [data-theme="mechanical"],
+  .dark[data-theme="mechanical"],
+  html.dark [data-theme="mechanical"],
+  html.dark[data-theme="mechanical"],
+  html:not(.light) [data-theme="mechanical"],
+  html:not(.light)[data-theme="mechanical"] {
+    --theme-bg-base: #09090b;
+    --theme-bg-card: #121012;
+    --theme-border: #27272a;
+    --theme-border-hover: #ef4444;
+    --theme-text-muted: #71717a;
+    --theme-text-secondary: #a1a1aa;
+    --theme-text-primary-hover: #ffffff;
+    --theme-text-primary: #f4f4f5;
+    --theme-accent: #ef4444; /* Vivid Mechanical Red */
+    --theme-accent-gradient: linear-gradient(135deg, #f43f5e 0%, #ef4444 50%, #b91c1c 100%);
+    --theme-accent-glow: rgba(239, 68, 68, 0.25);
+    
+    --color-glass-bg: rgba(18, 16, 18, 0.94);
+    --color-glass-bg-hover: rgba(24, 20, 24, 0.98);
+    --color-glass-border: rgba(255, 255, 255, 0.08);
+    --color-glass-border-hover: rgba(239, 68, 68, 0.6);
+  }
+
+  /* =========================================
+     MECHANICAL THEME (LIGHT) 
+     ========================================= */
+  .light [data-theme="mechanical"],
+  .light[data-theme="mechanical"],
+  html.light [data-theme="mechanical"],
+  html.light[data-theme="mechanical"],
+  [data-theme="mechanical"].light {
+    --theme-bg-base: #f8f8fa;
+    --theme-bg-card: #ffffff;
+    --theme-border: #e4e4e7;
+    --theme-border-hover: #dc2626;
+    --theme-text-muted: #71717a;
+    --theme-text-secondary: #52525b;
+    --theme-text-primary-hover: #18181b;
+    --theme-text-primary: #09090b;
+    --theme-accent: #dc2626; /* Deep Crisp Red */
+    --theme-accent-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    --theme-accent-glow: rgba(220, 38, 38, 0.15);
+    
+    --color-glass-bg: rgba(255, 255, 255, 0.97);
+    --color-glass-bg-hover: #ffffff;
+    --color-glass-border: rgba(0, 0, 0, 0.08);
+    --color-glass-border-hover: rgba(220, 38, 38, 0.5);
+  }
+
+  /* =========================================
+     SOFTWARE THEME (DARK)
+     ========================================= */
+  [data-theme="software"],
+  :root[data-theme="software"],
+  .dark [data-theme="software"],
+  .dark[data-theme="software"],
+  html.dark [data-theme="software"],
+  html.dark[data-theme="software"],
+  html:not(.light) [data-theme="software"],
+  html:not(.light)[data-theme="software"] {
+    --theme-bg-base: #030712;
+    --theme-bg-card: #0c1222;
+    --theme-border: #1e293b;
+    --theme-border-hover: #3b82f6;
+    --theme-text-muted: #64748b;
+    --theme-text-secondary: #94a3b8;
+    --theme-text-primary-hover: #ffffff;
+    --theme-text-primary: #f8fafc;
+    --theme-accent: #3b82f6; /* Electric Azure Blue */
+    --theme-accent-gradient: linear-gradient(135deg, #38bdf8 0%, #3b82f6 50%, #1d4ed8 100%);
+    --theme-accent-glow: rgba(59, 130, 246, 0.25);
+    
+    --color-glass-bg: rgba(12, 18, 34, 0.94);
+    --color-glass-bg-hover: rgba(16, 24, 46, 0.98);
+    --color-glass-border: rgba(255, 255, 255, 0.08);
+    --color-glass-border-hover: rgba(59, 130, 246, 0.6);
+  }
+
+  /* =========================================
+     SOFTWARE THEME (LIGHT)
+     ========================================= */
+  .light [data-theme="software"],
+  .light[data-theme="software"],
+  html.light [data-theme="software"],
+  html.light[data-theme="software"],
+  [data-theme="software"].light {
+    --theme-bg-base: #f1f5f9;
+    --theme-bg-card: #ffffff;
+    --theme-border: #cbd5e1;
+    --theme-border-hover: #2563eb;
+    --theme-text-muted: #64748b;
+    --theme-text-secondary: #334155;
+    --theme-text-primary-hover: #0f172a;
+    --theme-text-primary: #020617;
+    --theme-accent: #2563eb; /* Royal Sapphire Blue */
+    --theme-accent-gradient: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+    --theme-accent-glow: rgba(37, 99, 235, 0.15);
+    
+    --color-glass-bg: rgba(255, 255, 255, 0.97);
+    --color-glass-bg-hover: #ffffff;
+    --color-glass-border: rgba(0, 0, 0, 0.08);
+    --color-glass-border-hover: rgba(37, 99, 235, 0.5);
+  }
+}
+
+@theme {
+  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-outfit), sans-serif;
+
+  /* Dynamically map Tailwind utilities to our theme variables */
+  --color-zinc-950: var(--theme-bg-base);
+  --color-zinc-900: var(--theme-bg-card);
+  --color-zinc-800: var(--theme-border);
+  --color-zinc-700: var(--theme-border-hover);
+  --color-zinc-500: var(--theme-text-muted);
+  --color-zinc-400: var(--theme-text-secondary);
+  --color-zinc-300: var(--theme-text-primary-hover);
+  --color-zinc-100: var(--theme-text-primary);
+  --color-yellow-500: var(--theme-accent);
+}
+
+:root {
+  --background: var(--theme-bg-base);
+  --foreground: var(--theme-text-primary);
+  --color-bg-base: var(--theme-bg-base);
+  --color-bg-card: var(--theme-bg-card);
+  --color-border: var(--theme-border);
+  --color-border-hover: var(--theme-border-hover);
+  --color-text-muted: var(--theme-text-muted);
+  --color-text-secondary: var(--theme-text-secondary);
+  --color-text-primary: var(--theme-text-primary);
+  --color-text-primary-hover: var(--theme-text-primary-hover);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hit areas for touch targets - min 44x44px */
+.hit-area-min {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Image Outlines (from make-interfaces-feel-better) */
+img {
+  outline: 1px solid rgba(255, 255, 255, 0.1);
+  outline-offset: -1px;
+}
+
+/* =========================================
+   ULTRA-FIDELITY LIQUID GLASS (VisionOS Spec)
+   ========================================= */
+.glass-panel {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(28px) saturate(190%) contrast(102%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%) contrast(102%);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: 
+    0 16px 36px -8px rgba(0, 0, 0, 0.3),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 24px;
+  
+  /* Smooth liquid transition */
+  transition-property: border-color, background-color, transform, box-shadow;
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: var(--color-glass-border-hover);
+  background: var(--color-glass-bg-hover);
+  box-shadow: 
+    0 24px 48px -12px rgba(0, 0, 0, 0.45),
+    0 0 25px 0 var(--theme-accent-glow),
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Light mode specific specular highlight adjustment */
+.light .glass-panel {
+  box-shadow: 
+    0 12px 28px -6px rgba(0, 0, 0, 0.06),
+    0 2px 8px -2px rgba(0, 0, 0, 0.04),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.light .glass-panel:hover {
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.1),
+    0 0 25px 0 var(--theme-accent-glow),
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* Scrollbar formatting */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe-transition {
+    transition: opacity 0.2s;
+  }
+  .motion-reduce-transform {
+    transform: none !important;
+  }
+}
+
+/* Completely hide Google's default UI banner & tooltips */
+.goog-te-banner-frame.skiptranslate { display: none !important; }
+body { top: 0px !important; }
+#goog-gt-tt { display: none !important; }
+.goog-tooltip { display: none !important; }
+.goog-tooltip:hover { display: none !important; }
+.goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
+
