@@ -132,6 +132,7 @@ async function main() {
         category: "Algorithmic Trading",
         year: "2026",
         description: "Autonomous High-Frequency Trading system with Rust, Cython, and Python. Features DRL-enhanced market making and Delta-Neutral funding arbitrage.",
+        imageUrl: "/projects/nexusquant.png",
         mode: "SOFTWARE",
         order: 4
       },
@@ -148,6 +149,7 @@ async function main() {
         category: "AI SaaS Platform",
         year: "2026",
         description: "AI-powered Next.js application that optimizes CVs to bypass ATS systems, generating compliant .docx files using Vercel AI SDK and OpenAI.",
+        imageUrl: "/projects/ats_cv.png",
         mode: "SOFTWARE",
         order: 6
       },
@@ -156,6 +158,7 @@ async function main() {
         category: "Automation & AI",
         year: "2025",
         description: "End-to-end Python engine for Shopee Affiliate automation, utilizing Gemini Vision AI to generate product video scripts and visual overlays.",
+        imageUrl: "/projects/shopee_factory.png",
         mode: "SOFTWARE",
         order: 7
       },
@@ -172,6 +175,7 @@ async function main() {
         category: "Web Development",
         year: "2025",
         description: "Interactive biocomposite research lab website featuring WebGL 3D backgrounds (Three.js), a secured Admin CMS panel, and full i18n support.",
+        imageUrl: "/projects/asrofi_lab.png",
         mode: "SOFTWARE",
         order: 9
       },
