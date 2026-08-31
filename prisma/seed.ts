@@ -9,6 +9,7 @@ async function main() {
   await prisma.project.deleteMany({});
   await prisma.skill.deleteMany({});
   await prisma.achievement.deleteMany({});
+  await prisma.certificate.deleteMany({});
 
   console.log("Seeding Database...");
 
@@ -127,31 +128,60 @@ async function main() {
       },
       // SOFTWARE PROJECTS
       {
-        title: "Precision CAD Agent",
-        category: "Agentic Architecture",
-        year: "2024",
-        description: "Developed an industrial-grade agentic pipeline generating high-fidelity mechanical geometry in SolidWorks using Gemini Flash models.",
+        title: "NexusQuant HFT System",
+        category: "Algorithmic Trading",
+        year: "2026",
+        description: "Autonomous High-Frequency Trading system with Rust, Cython, and Python. Features DRL-enhanced market making and Delta-Neutral funding arbitrage.",
         mode: "SOFTWARE",
-        demoUrl: "https://github.com",
         order: 4
       },
       {
-        title: "Automated Portfolio CMS",
-        category: "Full-Stack Web App",
-        year: "2024",
-        description: "Built a fully autonomous, visual-editable Next.js CMS with 'Liquid Glass' UI/UX, integrating Prisma and Vercel Blob storage.",
+        title: "RV-NOS XAUUSD Scalper",
+        category: "Quantitative Finance",
+        year: "2026",
+        description: "Regime-Adaptive Volatility-Normalized OFI Scalping System for MT5. Engineered 13 core math modules using native MQL5 and Python validation suites.",
         mode: "SOFTWARE",
-        demoUrl: "https://github.com",
         order: 5
       },
       {
-        title: "SamFW Automation Script",
-        category: "Security & Scripts",
-        year: "2023",
-        description: "Auth bypass and automated firmware flashing tool for Samsung devices built with Python and MTK VCOM utilities.",
+        title: "Universal ATS CV Generator",
+        category: "AI SaaS Platform",
+        year: "2026",
+        description: "AI-powered Next.js application that optimizes CVs to bypass ATS systems, generating compliant .docx files using Vercel AI SDK and OpenAI.",
         mode: "SOFTWARE",
-        demoUrl: "https://github.com",
         order: 6
+      },
+      {
+        title: "Shopee Factory Automations",
+        category: "Automation & AI",
+        year: "2025",
+        description: "End-to-end Python engine for Shopee Affiliate automation, utilizing Gemini Vision AI to generate product video scripts and visual overlays.",
+        mode: "SOFTWARE",
+        order: 7
+      },
+      {
+        title: "Project OMEGA Framework",
+        category: "Quant Research",
+        year: "2025",
+        description: "Autonomous quantitative research framework for futures markets. Features ensemble agents and probability engines without relying on standard indicators.",
+        mode: "SOFTWARE",
+        order: 8
+      },
+      {
+        title: "Asrofi Laboratorium Platform",
+        category: "Web Development",
+        year: "2025",
+        description: "Interactive biocomposite research lab website featuring WebGL 3D backgrounds (Three.js), a secured Admin CMS panel, and full i18n support.",
+        mode: "SOFTWARE",
+        order: 9
+      },
+      {
+        title: "Aditiya Sprint AI",
+        category: "Mobile Native",
+        year: "2024",
+        description: "Native Android APK for B2B sales tracking and daily productivity. Embedded with an OpenAI API mentor interface directly inside the app.",
+        mode: "SOFTWARE",
+        order: 10
       }
     ]
   });
@@ -196,14 +226,46 @@ async function main() {
         mode: "MECHANICAL",
         order: 2
       },
-      // SOFTWARE
+      // ADDITIONAL AWARDS
       {
-        title: "Best Internal Tool Automation",
-        year: "2023",
-        description: "Awarded for saving over 500 engineering hours annually through custom scripts.",
-        credentialUrl: "https://github.com",
-        mode: "SOFTWARE",
+        title: "Sertifikat Mobil Irit Tawang Alun",
+        year: "2024",
+        description: "Awarded for the design and efficiency achievement in the energy-saving vehicle competition.",
+        mode: "MECHANICAL",
         order: 3
+      },
+      {
+        title: "Sertifikat UNEJ BATTLE",
+        year: "2023",
+        description: "Participated and excelled in the university-level UNEJ Battle competition.",
+        mode: "BOTH",
+        order: 4
+      },
+      {
+        title: "Sertifikat Panitia CS",
+        year: "2024",
+        description: "Served as a key committee member for the CS 2024 event, ensuring operational success.",
+        mode: "BOTH",
+        order: 5
+      }
+    ]
+  });
+
+  await prisma.certificate.createMany({
+    data: [
+      {
+        title: "Certified SOLIDWORKS Associate (CSWA)",
+        issuer: "Dassault Systèmes",
+        issueDate: "2024",
+        mode: "MECHANICAL",
+        order: 1
+      },
+      {
+        title: "Certificate Aditiya Syaiful Ramadhan",
+        issuer: "Professional Authority",
+        issueDate: "2024",
+        mode: "BOTH",
+        order: 2
       }
     ]
   });
